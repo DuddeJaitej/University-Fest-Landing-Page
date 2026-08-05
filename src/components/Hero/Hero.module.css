@@ -11,7 +11,7 @@
 /* The actual photo — blurred so text sits cleanly on top */
 .heroImg {
   position: absolute; inset: -20px;          /* compensate blur edge bleed */
-  background: url('/Assets/hero-Image.jpg') center center / cover no-repeat;
+  background: url('./Assets/hero-Image.jpg') center center / cover no-repeat;
   filter: blur(0.6px);
   transform: scale(1.06);
   animation: slowZoom 18s ease-in-out infinite alternate;
