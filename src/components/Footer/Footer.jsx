@@ -54,7 +54,7 @@ export default function Footer() {
           {/* Brand */}
           <div className={styles.brand}>
             <div className={styles.logo}>
-              <img src="./Assets/Invincia-Logo.png" alt="Invincia" className={styles.logoImg} />
+              <img src="./assets/Invincia-Logo.png" alt="Invincia" className={styles.logoImg} />
             </div>
             <p>One Campus. One Pulse.<br />Presidency University&apos;s Annual Cultural Extravaganza.</p>
           </div>

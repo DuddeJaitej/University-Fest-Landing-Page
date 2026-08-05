@@ -31,7 +31,7 @@ export default function Intro() {
 
             {/*  image */}
             <div className={`${styles.legacyImg} reveal`}>
-              <img src="./Assets/50years.png" alt=" of Legacy" />
+              <img src="./assets/50years.png" alt=" of Legacy" />
             </div>
           </div>
 
@@ -39,7 +39,7 @@ export default function Intro() {
           <div className={`${styles.videoWrap} reveal`}>
             <video
               className={styles.video}
-              src="./Assets/video.mp4"
+              src="./assets/video.mp4"
               autoPlay
               muted
               loop

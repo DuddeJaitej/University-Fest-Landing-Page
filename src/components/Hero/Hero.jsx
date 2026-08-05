@@ -45,7 +45,7 @@ export default function Hero() {
 
       {/* ── main content ── */}
       <div className={styles.content}>
-        <img src="./Assets/Invincia-Logo.png" alt="Invincia" className={`${styles.heroLogo} reveal`} />
+        <img src="./assets/Invincia-Logo.png" alt="Invincia" className={`${styles.heroLogo} reveal`} />
         <p className={`${styles.eyebrow} reveal`}>Presidency University Presents</p>
 
         <h1 className={styles.title}>
