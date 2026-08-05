@@ -29,9 +29,9 @@ export default function Intro() {
               bringing together students from across India.
             </p>
 
-            {/* 50 years image */}
+            {/*  image */}
             <div className={`${styles.legacyImg} reveal`}>
-              <img src="/Assets/50years.png" alt="50 Years of Legacy" />
+              <img src="./Assets/50years.png" alt=" of Legacy" />
             </div>
           </div>
 
@@ -39,7 +39,7 @@ export default function Intro() {
           <div className={`${styles.videoWrap} reveal`}>
             <video
               className={styles.video}
-              src="/Assets/video.mp4"
+              src="./Assets/video.mp4"
               autoPlay
               muted
               loop

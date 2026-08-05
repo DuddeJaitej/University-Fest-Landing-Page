@@ -22,7 +22,7 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.inner}>
         <a href="#home" className={styles.logo}>
-          <img src="/Assets/Invincia Logo.png" alt="Invincia" className={styles.logoImg} />
+          <img src="./Assets/Invincia-Logo.png" alt="Invincia" className={styles.logoImg} />
         </a>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>
