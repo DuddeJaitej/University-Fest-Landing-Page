@@ -4,5 +4,6 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/University-Fest-Landing-Page/'
+  base: '/University-Fest-Landing-Page/',
+  assetsDir: 'assets',
 })
