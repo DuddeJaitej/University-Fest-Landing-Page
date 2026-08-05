@@ -1,0 +1,231 @@
+/* ════════════════════════════════════
+   Events Section
+   ════════════════════════════════════ */
+.events {
+  background: #08080f;
+  position: relative;
+  overflow: hidden;
+}
+
+/* top line removed */
+
+/* Ambient glow that shifts colour with active tab */
+.bgGlow {
+  position: absolute;
+  width: 800px; height: 500px;
+  top: -100px; right: -200px;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  background: radial-gradient(circle,
+    color-mix(in srgb, var(--glow, #a855f7) 18%, transparent),
+    transparent 70%
+  );
+  transition: background 0.6s ease;
+}
+
+/* ── Header row ── */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.count {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  padding-bottom: 6px;
+}
+.count span {
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+/* ── Tab bar ── */
+.tabBar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  padding: 6px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 14px;
+  width: fit-content;
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* coloured dot inside each tab */
+.tabDot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--tc, #a855f7);
+  opacity: 0.4;
+  transition: opacity 0.3s;
+  flex-shrink: 0;
+}
+
+.tabCount {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50px;
+  padding: 1px 8px;
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+
+.tab:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.06);
+}
+.tab:hover .tabDot { opacity: 0.8; }
+
+.tabActive {
+  background: rgba(255,255,255,0.06);
+  border-color: color-mix(in srgb, var(--tc, #a855f7) 40%, transparent);
+  color: var(--text);
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--tc, #a855f7) 20%, transparent);
+}
+.tabActive .tabDot {
+  opacity: 1;
+  box-shadow: 0 0 8px var(--tc, #a855f7);
+}
+.tabActive .tabCount {
+  background: color-mix(in srgb, var(--tc, #a855f7) 20%, transparent);
+  color: var(--tc, #a855f7);
+}
+
+/* ── Events grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+/* ── Event card ── */
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: default;
+  transition: transform 0.28s ease, border-color 0.28s ease,
+              box-shadow 0.28s ease, background 0.28s ease;
+  animation: cardIn 0.35s ease both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* left accent bar */
+.cardBar {
+  position: absolute;
+  left: 0; top: 10%; bottom: 10%;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: var(--accent, #a855f7);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transform-origin: center;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent, #a855f7) 45%, transparent);
+  background: var(--bg-card2);
+  box-shadow:
+    0 8px 28px rgba(0,0,0,0.3),
+    0 0 0 1px color-mix(in srgb, var(--accent, #a855f7) 20%, transparent);
+}
+.card:hover .cardBar {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* icon bubble */
+.cardIconWrap {
+  position: relative;
+  width: 42px; height: 42px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.cardIconBg {
+  position: absolute; inset: 0;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent, #a855f7) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #a855f7) 22%, transparent);
+  transition: background 0.25s;
+}
+.card:hover .cardIconBg {
+  background: color-mix(in srgb, var(--accent, #a855f7) 22%, transparent);
+}
+.cardIconEmoji {
+  position: relative; z-index: 1;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* name */
+.cardName {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text);
+  flex: 1;
+  line-height: 1.3;
+  transition: color 0.25s;
+}
+.card:hover .cardName {
+  color: color-mix(in srgb, var(--accent, #a855f7) 80%, white);
+}
+
+/* arrow — removed */
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .tabBar { gap: 6px; }
+  .tab { padding: 9px 16px; font-size: 0.78rem; }
+}
+@media (max-width: 640px) {
+  .tabBar { width: 100%; }
+  .tab { flex: 1; justify-content: center; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+@import './variables.css';
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-dark);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--secondary); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: var(--section-pad) 0; position: relative; }
+
+.gradient-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--primary);
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+  border: none;
+}
+.btn-primary { background: var(--grad-fire); color: #fff; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(255,107,53,0.55); }
+.btn-outline { background: transparent; color: var(--text); border: 2px solid rgba(255,255,255,0.2); }
+.btn-outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }

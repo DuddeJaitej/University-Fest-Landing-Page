@@ -1,0 +1,122 @@
+.footer {
+  background: #030305;
+  padding: 80px 0 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.orb1, .orb2 {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); pointer-events: none;
+}
+.orb1 {
+  width: 400px; height: 400px; bottom: -200px; left: -100px;
+  background: radial-gradient(circle, rgba(255,107,53,0.1), transparent 70%);
+}
+.orb2 {
+  width: 300px; height: 300px; top: -100px; right: -50px;
+  background: radial-gradient(circle, rgba(168,85,247,0.1), transparent 70%);
+}
+
+/* ── Grid ── */
+.top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Brand ── */
+.logo {
+  margin-bottom: 16px;
+}
+.logoImg {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 12px rgba(255,107,53,0.25));
+}
+.brand p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  max-width: 300px;
+}
+
+/* ── Columns ── */
+.col h4 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+}
+.col ul { list-style: none; }
+.col li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* Arrow for quick links */
+.linkArrow {
+  width: 14px; height: 14px;
+  color: var(--primary);
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.col li:hover .linkArrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+.col a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.col a:hover { color: var(--primary); }
+
+/* Contact icon */
+.contactIcon {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  color: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+}
+.contactIcon svg {
+  width: 16px; height: 16px;
+}
+
+/* ── Bottom bar ── */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 32px;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .brand { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .top { grid-template-columns: 1fr; gap: 36px; }
+  .bottom { flex-direction: column; text-align: center; }
+}

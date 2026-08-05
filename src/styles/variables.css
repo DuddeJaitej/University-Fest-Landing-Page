@@ -1,0 +1,25 @@
+:root {
+  --primary: #ff6b35;
+  --secondary: #f7931e;
+  --accent: #a855f7;
+  --accent2: #06b6d4;
+  --gold: #ffd700;
+  --bg-dark: #050508;
+  --bg-card: #0d0d18;
+  --bg-card2: #111128;
+  --text: #f0f0ff;
+  --text-muted: #8888aa;
+  --border: rgba(255, 255, 255, 0.08);
+  --grad-fire: linear-gradient(135deg, #ff6b35, #f7931e, #ffd700);
+  --grad-purple: linear-gradient(135deg, #a855f7, #6366f1, #06b6d4);
+  --grad-text: linear-gradient(90deg, #ff6b35, #f7931e, #a855f7, #06b6d4);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-head: 'Rajdhani', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --radius: 16px;
+  --radius-sm: 8px;
+  --section-pad: 100px;
+  --shadow-glow: 0 0 40px rgba(255, 107, 53, 0.25);
+  --shadow-purple: 0 0 40px rgba(168, 85, 247, 0.25);
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}

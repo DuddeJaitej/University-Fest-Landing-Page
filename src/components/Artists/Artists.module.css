@@ -1,0 +1,163 @@
+/* ════════════════════════════════════════
+   Artists Section
+   ════════════════════════════════════════ */
+.artists {
+  background: #07070f;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.bgGlow1, .bgGlow2 {
+  position: absolute; border-radius: 50%;
+}
+.bgGlow1 {
+  width: 700px; height: 700px; top: -200px; left: -200px;
+  background: radial-gradient(circle, rgba(168,85,247,0.1), transparent 70%);
+}
+.bgGlow2 {
+  width: 600px; height: 600px; bottom: 100px; right: -200px;
+  background: radial-gradient(circle, rgba(255,107,53,0.09), transparent 70%);
+}
+
+.sub {
+  font-size: 1rem; color: var(--text-muted); margin-bottom: 56px;
+}
+
+/* ── 3-col grid ── */
+.featGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 72px;
+}
+
+/* ── Card — image only ── */
+.featCard {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition:
+    transform    0.42s cubic-bezier(0.25,0.46,0.45,0.94),
+    box-shadow   0.42s ease,
+    border-color 0.42s ease;
+}
+.featCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--c1, #ff6b35);
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.55),
+    0 0 0 1px var(--c1, #ff6b35);
+}
+
+/* ── Photo — always fully visible, no overlays ── */
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.featCard:hover .photo {
+  transform: scale(1.06);
+}
+
+/* ── Past lineup ticker ── */
+.pastWrap {
+  padding: 48px 0 56px;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+.pastLabel {
+  font-family: var(--font-head); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 28px;
+}
+.tickerWrap {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+}
+.tickerTrack {
+  display: flex; align-items: stretch;
+  width: max-content;
+  gap: 20px;
+  animation: tickerScroll 40s linear infinite;
+}
+.tickerTrack:hover { animation-play-state: paused; }
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Each item wrapper — just spacing */
+.tickerItem {
+  flex-shrink: 0;
+}
+
+/* The card itself */
+.tickerCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 10px 20px 10px 10px;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+.tickerCard:hover {
+  background: rgba(255,107,53,0.08);
+  border-color: rgba(255,107,53,0.35);
+  transform: translateY(-3px);
+}
+
+/* Square artist photo */
+.tickerImg {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Name + genre stack */
+.tickerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.tickerName {
+  font-family: var(--font-head); font-size: 0.92rem; font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  transition: color 0.3s;
+}
+.tickerCard:hover .tickerName { color: var(--primary); }
+.tickerGenre {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .featGrid { gap: 18px; }
+}
+@media (max-width: 768px) {
+  .featGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto; margin-right: auto;
+  }
+  .featCard { aspect-ratio: 4 / 5; }
+}
+@media (max-width: 480px) {
+  .featCard { aspect-ratio: 3 / 4; }
+}

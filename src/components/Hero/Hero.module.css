@@ -1,0 +1,194 @@
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  text-align: center; padding: 140px 24px 100px;
+}
+
+/* ── Background stack ── */
+.bg { position: absolute; inset: 0; z-index: 0; }
+
+/* The actual photo — blurred so text sits cleanly on top */
+.heroImg {
+  position: absolute; inset: -20px;          /* compensate blur edge bleed */
+  background: url('/Assets/hero-Image.jpg') center center / cover no-repeat;
+  filter: blur(0.6px);
+  transform: scale(1.06);
+  animation: slowZoom 18s ease-in-out infinite alternate;
+}
+@keyframes slowZoom {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.14); }
+}
+
+/* Dark at top — navbar area */
+.overlayTop {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5,5,8,0.82) 0%,
+    rgba(5,5,8,0.35) 25%,
+    transparent       55%
+  );
+}
+/* Dark at bottom — blends into next section */
+.overlayBottom {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5,5,8,1)    0%,
+    rgba(5,5,8,0.75) 20%,
+    transparent       55%
+  );
+}
+/* Centre vignette — darkens the image behind the title */
+.overlayCenter {
+  position: absolute; inset: 0;
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 50%,
+    rgba(5,5,8,0.60) 0%,
+    transparent 75%
+  );
+}
+
+/* Colour orbs — reduced opacity so they don't muddy text */
+.orb1 {
+  position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none;
+  width: 560px; height: 560px; top: -160px; left: -160px;
+  background: radial-gradient(circle, rgba(255,107,53,0.18), transparent 70%);
+  animation: float 7s ease-in-out infinite;
+}
+.orb2 {
+  position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none;
+  width: 460px; height: 460px; bottom: -120px; right: -120px;
+  background: radial-gradient(circle, rgba(168,85,247,0.18), transparent 70%);
+  animation: float 7s ease-in-out infinite; animation-delay: 3s;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-24px) scale(1.04); }
+}
+
+/* Subtle grid */
+.grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,107,53,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,107,53,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridPan 24s linear infinite;
+}
+@keyframes gridPan { to { background-position: 60px 60px; } }
+
+/* Particles */
+.particles { position: absolute; inset: 0; overflow: hidden; }
+.dot {
+  position: absolute; border-radius: 50%;
+  animation: rise linear infinite;
+}
+@keyframes rise {
+  0%   { transform: translateY(110vh); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* ── Content ── */
+.content {
+  position: relative; z-index: 1; max-width: 960px; margin: 0 auto;
+}
+
+/* Hero logo above eyebrow */
+.heroLogo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* "Presidency University Presents" */
+.eyebrow {
+  font-family: var(--font-head); font-size: 1rem; font-weight: 700;
+  letter-spacing: 5px; color: #fff; text-transform: uppercase;
+  margin-bottom: 20px;
+  padding: 8px 22px; border-radius: 50px;
+  display: inline-block;
+}
+
+/* Main title */
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 18vw, 14rem);
+  letter-spacing: 6px; line-height: 0.88; margin-bottom: 8px;
+}
+.titleText {
+  display: inline-block;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.year {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4rem); letter-spacing: 14px;
+  background: var(--grad-purple);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 8px;
+}
+
+.tagline {
+  font-family: var(--font-head); font-size: 1.3rem; font-weight: 600;
+  letter-spacing: 5px; color: rgba(255,255,255,0.85); text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.desc {
+  font-size: 1.05rem; color: rgba(255,255,255,0.75);
+  max-width: 600px; margin: 0 auto 40px; line-height: 1.9;
+}
+
+.btns {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;
+}
+
+.dateTag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-head); font-size: 0.9rem; font-weight: 600;
+  letter-spacing: 2px; color: rgba(255,255,255,0.75); text-transform: uppercase;
+  background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.18);
+  padding: 10px 24px; border-radius: 50px;
+  backdrop-filter: blur(8px);
+}
+
+/* ── Scroll hint ── */
+.scrollHint {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-family: var(--font-head); font-size: 0.7rem; letter-spacing: 3px;
+  color: rgba(255,255,255,0.45); text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+.mouse {
+  width: 22px; height: 36px; border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 11px; display: flex; justify-content: center; padding-top: 6px;
+}
+.wheel {
+  width: 4px; height: 8px; background: var(--primary);
+  border-radius: 2px; animation: wheel 2s infinite;
+}
+@keyframes wheel {
+  0%   { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(12px); opacity: 0; }
+}
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(-8px); }
+}
+
+@media (max-width: 768px) {
+  .title { font-size: clamp(4rem, 20vw, 7rem); }
+  .btns  { flex-direction: column; align-items: center; }
+  .eyebrow { font-size: 0.75rem; letter-spacing: 3px; }
+}

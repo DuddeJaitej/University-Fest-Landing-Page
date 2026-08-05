@@ -1,0 +1,36 @@
+export const passes = [
+  {
+    id: 'participant',
+    badge: 'COMPETE',
+    popular: false,
+    icon: '🥇',
+    name: 'Participant Pass',
+    desc: 'For students who want to compete and win big on stage.',
+    price: 'FREE',
+    priceSub: 'for PU Students only',
+    perks: [
+      'Access to all competition arenas',
+      'Eligible for full prize pool',
+      'Main stage access',
+      'Exclusive participant merch',
+    ],
+    featured: false,
+  },
+  {
+    id: 'entry',
+    badge: 'MOST POPULAR',
+    popular: true,
+    icon: '🎟️',
+    name: 'Entry Pass',
+    desc: 'For visitors from other colleges who want the full Invincia experience.',
+    price: '₹399',
+    priceSub: 'per person',
+    perks: [
+      'Full campus access',
+      'Main stage concerts',
+      'All event viewing',
+      'Food court access',
+    ],
+    featured: true,
+  },
+]
